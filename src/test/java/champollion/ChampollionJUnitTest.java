@@ -36,5 +36,14 @@ public class ChampollionJUnitTest {
                          "L'enseignant doit maintenant avoir 30 heures prévues pour l'UE 'uml'");		
 		
 	}
+	@Test
+	public void testEstSousService() {
+		untel.ajouteEnseignement(java, 50, 50, 50);
+		untel.ajouteEnseignement(uml, 50, 50, 50);
+		Enseignant unAutre = new Enseignant("autre", "autre@gmail.com");
+		unAutre.ajouteEnseignement(java, 20, 10, 10);
+		assertFalse(untel.enSousService());
+		assertTrue(unAutre.enSousService());
+	}
 	
 }
